@@ -15,7 +15,7 @@ const TopRecipe = () => {
         }
     })
 
-    // if (!topRecipes || isLoading) return <Loading/>
+    if (!topRecipes || isLoading) return <Loading/>
 
     return (
         <div className='w-[85.94vw] mx-auto my-30'>
