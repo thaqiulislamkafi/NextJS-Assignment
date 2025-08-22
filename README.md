@@ -42,18 +42,18 @@ All recipe data is managed through a **MongoDB** backend, ensuring efficient sto
 | `mongodb`    | NoSQL database                         |
 | `dotenv`     | Manage environment variables securely  |
 
-⚙️ Project Setup & Installation
+## ⚙️ Project Setup & Installation
 
 Follow the steps below to set up the project locally:
 
-📁 Clone the Repository
+### 📁 Clone the Repository
 
 ```bash
 git clone https://github.com/thaqiulislamkafi/NextJS-Assignment.git
 cd NextJS-Assignment
 ```
 
-🔧 Front-End Setup
+### 🔧 Front-End Setup
 
 Navigate to the client directory:
 
@@ -61,23 +61,21 @@ Navigate to the client directory:
 cd client
 ```
 
-Install dependencies:
+### Install dependencies:
 
 ```bash
 npm install react-icons sweetalert2 @tanstack/react-query
 ```
 
-Start the development server:
+### Start the development server:
 
 ```bash
 npm run dev
 ```
 
-The front-end will be running at:
+### The front-end will be running at:
 
 http://localhost:3000
-
-🖥️ Back-End Setup
 
 
 🙋‍♂️ Author
