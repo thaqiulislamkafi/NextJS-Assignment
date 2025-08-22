@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🍽️ RecipeHut
 
-## Getting Started
+Welcome to **RecipeHut**, your go-to place for discovering, saving, and enjoying delicious recipes from around the world! Whether you're a food enthusiast or a professional chef, RecipeHut brings a seamless and interactive experience to explore culinary delights.
 
-First, run the development server:
+🔗 **Live Website**: [https://next-js-assignment-murex.vercel.app/](https://thaqiulislamkafi-assignment-10.netlify.app/)
+
+---
+
+## 🎯 Purpose
+
+RecipeHut is a full-stack web application designed to provide users with a rich experience of browsing, filtering, and liking various recipes. It focuses on user interaction, responsiveness, and a delightful UI, while ensuring data security and user authentication.
+
+---
+
+## 🌟 Key Features
+
+### ✅ Toastify & SweetAlert Integration
+Interactive user feedback is provided via **React Toastify** for non-intrusive notifications and **SweetAlert2** for stylish modal alerts, enhancing the user experience with clean and modern notifications.
+
+
+### 💾 MongoDB Integration
+All recipe data is managed through a **MongoDB** backend, ensuring efficient storage, retrieval, and manipulation of user and recipe information.
+
+
+---
+
+## 🛠️ Tech Stack
+
+### Front-End
+| Package              | Purpose                                     |
+|----------------------|---------------------------------------------|
+| `react-toastify`     | Toast notifications                        |
+| `react-awesome-reveal` | Animation effects using Framer Motion    |
+| `react-typewriter`   | Typewriter text animations                 |
+| `react-icons`        | Beautiful, consistent icons                |
+
+### Back-End
+| Package      | Purpose                                |
+|--------------|----------------------------------------|
+| `express`    | Node.js web framework                  |
+| `cors`       | Handle cross-origin requests           |
+| `mongodb`    | NoSQL database                         |
+| `dotenv`     | Manage environment variables securely  |
+
+⚙️ Project Setup & Installation
+
+Follow the steps below to set up the project locally:
+
+📁 Clone the Repository
+
+```bash
+git clone https://github.com/thaqiulislamkafi/NextJS-Assignment.git
+cd NextJS-Assignment
+```
+
+🔧 Front-End Setup
+
+Navigate to the client directory:
+
+```bash
+cd client
+```
+
+Install dependencies:
+
+```bash
+npm install react-icons sweetalert2 @tanstack/react-query
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The front-end will be running at:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🖥️ Back-End Setup
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+🙋‍♂️ Author
+> Thaqi Ul Islam Kafi
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
