@@ -4,6 +4,9 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import QueryProvider from "./QueryProvider";
 
+// Author : Thaqi Ul Islam Kafi
+// Description : Loading the main Layout of website
+// Date : 2025 - 08 - 21
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

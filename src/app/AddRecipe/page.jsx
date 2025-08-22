@@ -1,0 +1,108 @@
+"use client";
+import React, {use} from 'react';
+import Swal from 'sweetalert2';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
+import axiosSecure from '../Components/Hooks/useAxios';
+import { useForm } from 'react-hook-form';
+
+// Author : Thaqi Ul Islam Kafi
+// Description : Add Recipe into RecipeHut
+// Date : 2025 - 08 - 22    
+
+export const FormInput = ({ label, name, register, type, errors, placeholder, defaultValue }) => (
+
+    <div className='flex flex-col gap-3'>
+
+        <label className='label'>{label}</label>
+        <input type={type} className='input rounded-3xl w-full dark:bg-gray-700' placeholder={placeholder} {...register(name, { required: `${label} is Required` })} defaultValue={defaultValue || ''} />
+        {errors[name] && (<p style={{ color: 'red' }}>{errors[name].message}</p>)}
+
+    </div>
+)
+
+
+const AddRecipe = () => {
+
+    const queryClient = useQueryClient();
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const categoryList = ['breakfast', 'dessert', 'vegan', 'dinner', 'launch'];
+    const quisineTypes = ['Italian', 'Mexican', 'Indian', 'Chinese', 'Others'];
+
+    const mutation = useMutation({
+        mutationFn: async (recipe) => {
+            return axiosSecure.post('/recipes', recipe)
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries(['recipes']);
+            Swal.fire({ title: "Good job!", text: "SuccessFully Added!", icon: "success" });
+        }
+      }
+    )
+
+    const onSubmit = (data) => {
+
+        data.prepTime = parseInt(data.prepTime);
+        data.categories = Object.keys(data.categories).filter(category => data.categories[category])
+        data.likes = 0;
+        mutation.mutate(data);
+        console.log(data);
+
+    };
+
+    return (
+        <div>
+            <div>
+                <div className='sora-font w-[65.94vw] mx-auto my-20'>
+                    <p className='poppins font-bold text-3xl text-center my-10'>Add Recipe</p>
+
+                    <form onSubmit={handleSubmit(onSubmit)} className="fieldset grid grid-cols-1 lg:grid-cols-2  p-4 mx-auto gap-6 dark:bg-gray-700 dark:text-gray-200 ">
+
+                        <FormInput label='Title' type='text' name='title' register={register} errors={errors} placeholder='Enter Recipe Title' />
+
+                        <FormInput label='Ingredients' type='text' name='ingredients' register={register} errors={errors} placeholder="Enter Recipe's Ingredients" />
+
+                        <FormInput label='Instructions' type='text' name='instructions' register={register} errors={errors} placeholder="Enter Instructions" />
+
+                        <FormInput label='Prep Time (mins)' type='number' name='prepTime' register={register} errors={errors} placeholder="Enter Instructions" />
+
+                        <div className='flex flex-col gap-3'>
+
+                            <label className="label">Categories:</label>
+                            <div className='flex items-center gap-2'>
+                                {categoryList.map(cat => (
+                                    <label key={cat} className='label cursor-pointer flex items-center gap-2'>
+                                        <span className='capitalize'>{cat}</span>
+                                        <input type="checkbox" className='checkbox' {...register(`categories.${cat}`)} />
+                                    </label>
+                                ))}
+                            </div>
+
+                        </div>
+
+                        <div className='flex flex-col gap-3'>
+
+                          <label className="label">Cuisine Type:</label>
+                          <select {...register('cuisineType', { required: 'Cuisine Type is Required' })} className="select rounded-3xl dark:bg-gray-700" >
+                                
+                          {quisineTypes.map(type =>(
+                            <option value={type}>{type}</option>
+                          ))}
+                          </select>
+                          {errors.cuisineType && (<p style={{ color: 'red' }}>{errors.cuisineType.message}</p>)}
+
+                        </div>
+
+                        <FormInput label='Photo' type='text' name='photoURL' register={register} errors={errors} placeholder="Enter Your PhotoURL"/>
+
+                        <button className="btn mx-auto rounded-3xl lg:col-span-2 w-full dark:bg-gray-700 dark:text-gray-200">Add Recipe</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default AddRecipe;
