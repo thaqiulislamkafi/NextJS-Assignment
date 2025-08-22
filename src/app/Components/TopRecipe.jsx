@@ -11,7 +11,7 @@ import Loading from './SharedElement/Loading';
 
 const TopRecipe = () => {
 
-    const { data: topRecipes = [],isLoading } = useQuery({
+    const { data: topRecipes = [], isLoading } = useQuery({
         queryKey: ['toprecipes'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/topRecipes');
@@ -19,7 +19,7 @@ const TopRecipe = () => {
         }
     })
 
-    if (!topRecipes || isLoading) return <Loading/>
+    if (!topRecipes || isLoading) return <Loading />
 
     return (
         <div className='w-[85.94vw] mx-auto my-30'>
@@ -38,7 +38,7 @@ const TopRecipe = () => {
 
                                         <div className='flex gap-2 items-center'>
                                             {
-                                                recipe.categories.map((category,index) => <p key={index} className='text-[#176AE5] text-[10px] px-2 py-1 bg-[#1769e51c] rounded-2xl dark:text-white'># {category}</p>)
+                                                recipe.categories.map((category, index) => <p key={index} className='text-[#176AE5] text-[10px] px-2 py-1 bg-[#1769e51c] rounded-2xl dark:text-white'># {category}</p>)
                                             }
                                         </div>
 
@@ -48,9 +48,11 @@ const TopRecipe = () => {
                                         <p> Total Likes : {recipe.likes}</p>
                                     </div>
                                     <div>
-                                
+                                        <Link href={`/AllRecipe/${recipe._id}`}>
+
                                             <button className='btn btn-sm text-xs rounded-xl '>View more</button>
-                                        
+                                        </Link>
+
                                     </div>
                                 </div>
                             </div>

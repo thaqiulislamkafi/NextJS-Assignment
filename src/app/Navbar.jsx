@@ -1,6 +1,9 @@
-
 import Link from 'next/link';
 import React from 'react';
+
+// Author : Thaqi Ul Islam Kafi
+// Description : Loading Navbar of the Website
+// Date : 2025 - 08 - 21
 
 const Navbar = () => {
 

@@ -4,6 +4,9 @@ import {useQuery} from '@tanstack/react-query';
 import axiosSecure from '@/app/Components/Hooks/useAxios';
 import Loading from '@/app/Components/SharedElement/Loading';
 
+// Author : Thaqi Ul Islam Kafi
+// Description : Loading Dynamic Recipe Details
+// Date : 2025 - 08 - 22
 
 const AllRecipeDetails = ({params}) => {
 
